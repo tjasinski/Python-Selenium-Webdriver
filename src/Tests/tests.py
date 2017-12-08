@@ -16,10 +16,13 @@ class MainPage(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def test_loading_page(self):
+    def test_home_page_menu(self):
         top = TopSection(self.driver)
-        s = top.women_menu_hover()
-        self.assertTrue(s)
+        women = top.women_menu_hover()
+        self.assertTrue(women, '<Women> submenu is not displayed')
+        dresses = top.dresses_menu_hover()
+        self.assertTrue(dresses, '<Dresses> submenu is not displayed')
+
 
 
 if __name__ == '__main__':
